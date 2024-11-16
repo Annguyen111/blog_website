@@ -1,0 +1,219 @@
+@use '../../styles/_breakpoint' as *;
+
+.header {
+  padding: 5px 0;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  @include mobile {
+    padding: 0px 0;
+  }
+
+  &__wrap {
+    max-width: 98%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    @include mobile {
+      max-width: 95%;
+    }
+
+    .header-logo {
+      width: 20%;
+      display: flex;
+      align-items: center;
+
+      @include tablet {
+        width: 15%;
+      }
+
+      &__icon {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+
+      &__search {
+        position: relative;
+        margin-left: 10px;
+
+        @include mobile {
+          margin-left: 0px;
+        }
+
+        @include tablet {
+          margin-left: 0px;
+        }
+
+        .search-button {
+          position: absolute;
+          top: 4px;
+          left: 5px;
+          color: #000000;
+          background-color: transparent;
+          border: none;
+          padding: 10px;
+
+          @include mobile {
+            margin-bottom: 5px;
+            position: relative;
+            left: 0px;
+            background-color: #f0eeee;
+            padding: 10px;
+            border-radius: 50%;
+          }
+
+          @include tablet {
+            margin-bottom: 5px;
+            position: relative;
+            left: 0px;
+            background-color: #f0eeee;
+            padding: 10px;
+            border-radius: 50%;
+          }
+        }
+
+        .search-input {
+          padding: 12px 40px;
+          background-color: #f0eeee;
+          border: none;
+          border-radius: 20px;
+
+          &:focus {
+            outline: none;
+          }
+
+          @include mobile {
+            display: none;
+          }
+
+          @include tablet {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .nav {
+    width: 30%;
+    margin-right: 150px;
+    display: flex;
+    align-items: center;
+
+    @include mobile {
+      display: none;
+    }
+
+    @include tablet {
+      width: 25%;
+    }
+
+    .nav-list {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__item {
+        a {
+          color: #65686c;
+          transition: all ease-in 0.2s;
+          font-size: 20px;
+          padding: 10px 30px;
+          border-radius: 10px;
+
+          &:hover {
+            background-color: #e2e2e2;
+          }
+        }
+
+        &.active a {
+          color: var(--primary-color);
+          font-weight: bold;
+          background-color: transparent;
+          border-radius: 0px;
+          border-bottom: 3px solid var(--primary-color);
+        }
+      }
+    }
+  }
+
+  .header-actions {
+    width: 13%;
+
+    @include tablet {
+      width: 20%;
+    }
+
+    @include mobile {
+      width: 40%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .actions-list {
+      width: 100%;
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #e2e2e2;
+        cursor: pointer;
+
+        a {
+          color: #65686c;
+          transition: all ease-in 0.2s;
+          font-size: 20px;
+
+          @include mobile {
+            font-size: 15px;
+          }
+        }
+
+        &:hover {
+          background-color: #c9c9c9;
+        }
+
+        img {
+          margin-top: 6px;
+          width: 40px;
+          height: 40px;
+        }
+
+        @include mobile {
+          width: 30px;
+          height: 30px;
+          padding: 5px;
+
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+
+      &__item:last-child {
+        background-color: transparent;
+      }
+    }
+  }
+}

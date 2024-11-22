@@ -1,21 +1,18 @@
 import { Link } from 'react-router-dom'
 import './header.scss'
 import logo from '../../assets/logo.png'
-import avatar from '../../assets/user-icon.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  faHouse,
-  faVideo,
-  faShop,
-  faUsers,
-  faGamepad,
-  faSquareCaretDown,
-  faMessage,
-  faBell,
   faSearch
 } from '@fortawesome/free-solid-svg-icons'
+import { actionLinks, navLinks } from '../../constants/headerData'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
 function Header() {
+  const handleClick = (name: string) => {
+    console.log(`Clicked on: ${name}`)
+  }
+
   return (
     <div className='header'>
       <div className='header__wrap'>
@@ -27,60 +24,43 @@ function Header() {
             <button className='search-button'>
               <FontAwesomeIcon icon={faSearch} />
             </button>
-            <input type='text' name='' id='' placeholder='Search Facebook' className='search-input' />
+            <input type='text' placeholder='Search Facebook' className='search-input' />
           </div>
         </div>
+
         <nav className='nav'>
           <ul className='nav-list'>
-            <li className='nav-list__item active'>
-              <Link to='/'>
-                <FontAwesomeIcon icon={faHouse} />
-              </Link>
-            </li>
-            <li className='nav-list__item'>
-              <Link to='/'>
-                <FontAwesomeIcon icon={faVideo} />
-              </Link>
-            </li>
-            <li className='nav-list__item'>
-              <Link to='/'>
-                <FontAwesomeIcon icon={faShop} />
-              </Link>
-            </li>
-            <li className='nav-list__item'>
-              <Link to='/'>
-                <FontAwesomeIcon icon={faUsers} />
-              </Link>
-            </li>
-            <li className='nav-list__item'>
-              <Link to='/'>
-                <FontAwesomeIcon icon={faGamepad} />
-              </Link>
-            </li>
+            {navLinks.map((link) => (
+              <li
+                key={link.id}
+                className={`nav-list__item ${link.name === 'Home' ? 'active' : ''}`}
+                onClick={() => handleClick(link.name)}
+              >
+                <Link to={link.path}>
+                  <FontAwesomeIcon icon={link.icon} />
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
+
         <div className='header-actions'>
           <ul className='actions-list'>
-            <li className='actions-list__item'>
-              <Link to='/'>
-                <FontAwesomeIcon icon={faSquareCaretDown} />
-              </Link>
-            </li>
-            <li className='actions-list__item'>
-              <Link to='/'>
-                <FontAwesomeIcon icon={faMessage} />
-              </Link>
-            </li>
-            <li className='actions-list__item'>
-              <Link to='/'>
-                <FontAwesomeIcon icon={faBell} />
-              </Link>
-            </li>
-            <li className='actions-list__item'>
-              <Link to='/'>
-                <img src={avatar} alt='Avatar User' />
-              </Link>
-            </li>
+            {actionLinks.map((action) => (
+              <li
+                key={action.id}
+                className='actions-list__item'
+                onClick={() => handleClick(action.name)}
+              >
+                <Link to={action.path}>
+                  {action.isImage ? (
+                    <img src={action.icon} alt={action.name} />
+                  ) : (
+                    <FontAwesomeIcon icon={action.icon as IconProp} />
+                  )}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

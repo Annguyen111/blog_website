@@ -2,15 +2,20 @@ import { Link } from 'react-router-dom'
 import './header.scss'
 import logo from '../../assets/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faSearch
-} from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { actionLinks, navLinks } from '../../constants/headerData'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
 
-function Header() {
+interface HeaderProps {
+  onAvatarClick: () => void
+}
+
+function Header({ onAvatarClick }: HeaderProps) {
   const handleClick = (name: string) => {
     console.log(`Clicked on: ${name}`)
+    if (name === 'Profile') {
+      onAvatarClick()
+    }
   }
 
   return (
@@ -47,11 +52,7 @@ function Header() {
         <div className='header-actions'>
           <ul className='actions-list'>
             {actionLinks.map((action) => (
-              <li
-                key={action.id}
-                className='actions-list__item'
-                onClick={() => handleClick(action.name)}
-              >
+              <li key={action.id} className='actions-list__item' onClick={() => handleClick(action.name)}>
                 <Link to={action.path}>
                   {action.isImage ? (
                     <img src={action.icon} alt={action.name} />

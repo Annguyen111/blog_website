@@ -22,7 +22,7 @@ const actionLinks = [
   { id: 1, icon: faSquareCaretDown, path: '/menu', name: 'Menu' },
   { id: 2, icon: faMessage, path: '/messages', name: 'Messages' },
   { id: 3, icon: faBell, path: '/notifications', name: 'Notifications' },
-  { id: 4, icon: avatar, path: '/profile', name: 'Profile', isImage: true }
+  { id: 4, icon: avatar, path: '', name: 'Profile', isImage: true }
 ]
 
 export { navLinks, actionLinks }

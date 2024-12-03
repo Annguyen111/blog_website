@@ -1,5 +1,5 @@
 import avatar from '../../assets/user-icon.png'
-import './ProfileHeader.scss'
+import './profileHeader.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGear, faQuestion, faMoon, faCommentDots, faRightToBracket } from '@fortawesome/free-solid-svg-icons'
 

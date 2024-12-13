@@ -8,6 +8,7 @@
   top: 0;
   right: 0;
   left: 0;
+  z-index: 1000;
 
   @include mobile {
     padding: 0px 0;
@@ -156,7 +157,7 @@
     }
 
     @include mobile {
-      width: 40%;
+      width: 50%;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -174,7 +175,7 @@
         align-items: center;
         justify-content: center;
         width: 40px;
-        height: 40px;
+        height:40px;
         border-radius: 50%;
         background-color: #e2e2e2;
         cursor: pointer;
@@ -200,13 +201,13 @@
         }
 
         @include mobile {
-          width: 30px;
-          height: 30px;
-          padding: 5px;
+          width: 40px;
+          height: 40px;
+          padding: 10px;
 
           img {
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
           }
         }
       }

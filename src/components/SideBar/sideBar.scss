@@ -1,0 +1,52 @@
+@use '../../styles/_breakpoint' as *;
+
+.sidebar {
+  width: 25%;
+  position: fixed;
+  top: 60;
+
+  @include mobile {
+    display: none;
+  }
+
+  &-wrap {
+    padding: 10px 0;
+
+    .sidebar-list {
+      .sidebar-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+        border-radius: 6px;
+
+        &:hover {
+          background-color: #e2e2e2;
+        }
+
+        &__avatar {
+          width: 30px;
+          height: 30px;
+        }
+
+        &__text {
+          color: #080809;
+          font-size: 14px;
+        }
+
+        &__icon {
+          color: #1a81e9;
+          font-size: 20px;
+        }
+
+        &__icon.last {
+          background-color: #d6d9dd;
+          padding: 6px 8px;
+          border-radius: 50%;
+          color: #080809;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

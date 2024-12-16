@@ -1,0 +1,59 @@
+@use '../../styles/_breakpoint' as *;
+
+.widget {
+  width: 25%;
+  padding: 10px 10px;
+  position: fixed;
+  top: 60px;
+  right: 0;
+
+  @include mobile {
+    display: none;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    .header-title {
+      color: #606367;
+      font-weight: 500;
+    }
+
+    .header-actions {
+      &__item {
+        margin-left: 15px;
+        color: #606367;
+      }
+    }
+  }
+
+  &__contacts {
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+
+      &__avatar {
+        width: 30px;
+        height: 30px;
+      }
+
+      &__info {
+        .info-name {
+          color: #606367;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        .info-status {
+          color: #606367;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}

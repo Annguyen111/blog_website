@@ -1,0 +1,32 @@
+@use '../styles/_breakpoint' as *;
+
+.register {
+  background-color: #f2f1f8;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .register-wrapper {
+    width: 70%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @include mobile {
+      width: 100%;
+    }
+
+    &__title {
+      color: #1479ee;
+      font-size: 54px;
+      margin-bottom: 20px;
+      text-align: center;
+
+      @include mobile {
+        font-size: 36px;
+      }
+    }
+  }
+}

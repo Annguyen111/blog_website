@@ -1,0 +1,99 @@
+@use '../../styles/_breakpoint' as *;
+
+.form-login {
+  width: 40%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  @include mobile {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+
+    .form-input {
+      background-color: transparent;
+      padding: 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+    }
+
+    .form-button {
+      background-color: #1479ee;
+      color: #ffffff;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 20px;
+
+      @include mobile {
+        font-size: 16px;
+      }
+
+      @include tablet {
+        font-size: 18px;
+      }
+
+      &:hover {
+        background-color: #0f6dd6;
+      }
+    }
+
+    .form-link {
+      text-align: center;
+      color: #1479ee;
+      text-decoration: none;
+
+      @include mobile {
+        font-size: 14px;
+      }
+
+      @include tablet {
+        font-size: 16px;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__link {
+    background-color: #42b62b;
+    display: block;
+    width: 60%;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 18px;
+
+    @include mobile {
+      font-size: 14px;
+      width: 60%;
+    }
+
+    @include tablet {
+      font-size: 16px;
+      width: 70%;
+    }
+
+    &:hover {
+      background-color: #3aa226;
+    }
+  }
+}

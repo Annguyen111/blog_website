@@ -1,0 +1,65 @@
+@use '../styles/_breakpoint' as *;
+
+.login {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-color: #f2f1f8;
+
+  .login-wrapper {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include mobile {
+      flex-direction: column;
+      width: 90%;
+    }
+
+    @include tablet {
+      width: 80%;
+    }
+
+    .login-text {
+      width: 50%;
+
+      @include mobile {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      @include tablet {
+        width: 60%;
+      }
+
+      &__title {
+        color: #1479ee;
+        font-size: 54px;
+
+        @include mobile {
+          font-size: 36px;
+        }
+
+        @include tablet {
+          font-size: 48px;
+        }
+      }
+
+      &__description {
+        color: #7a7a7a;
+        font-size: 24px;
+
+        @include mobile {
+          font-size: 18px;
+        }
+
+        @include tablet {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

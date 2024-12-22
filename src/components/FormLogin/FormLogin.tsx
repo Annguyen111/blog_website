@@ -14,7 +14,7 @@ function FormLogin() {
           Forgot password?
         </Link>
       </form>
-      <Link to='/register' className='form-login__link form-login__link--create'>
+      <Link to='/register' className='form-login__link'>
         Create new account
       </Link>
     </div>

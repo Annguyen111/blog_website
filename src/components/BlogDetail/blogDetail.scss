@@ -14,7 +14,7 @@
     width: 90%;
   }
 
-  .blog-header {
+  &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,14 +27,14 @@
         width: 40px;
         height: 40px;
       }
-      &__info {
-        .post-name {
+      .info {
+        &__name {
           color: #606367;
           font-size: 14px;
           font-weight: 500;
         }
 
-        .post-time {
+        &__time {
           color: #606367;
           font-size: 12px;
         }
@@ -64,27 +64,27 @@
     }
   }
 
-  .blog-text {
+  &__text {
     margin-top: 10px;
     color: #606367;
     font-size: 14px;
   }
 
-  .blog-image {
+  &__image {
     width: 100%;
     margin-top: 10px;
     border-radius: 10px;
     object-fit: cover;
   }
 
-  .blog-actions {
+  &__actions {
     display: flex;
     justify-content: space-between;
     padding: 10px 0px;
     border-top: solid 2px #eee;
     border-bottom: solid 2px #eee;
 
-    &__item {
+    .blog-actions__item {
       width: 33.33%;
       padding: 10px 20px;
       background-color: transparent;
@@ -108,7 +108,7 @@
     }
   }
 
-  .blog-comment {
+  &__comment {
     select {
       background-color: transparent;
       color: #606367;

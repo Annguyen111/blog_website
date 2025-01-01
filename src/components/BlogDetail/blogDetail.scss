@@ -1,0 +1,246 @@
+@use '../../styles/_breakpoint' as *;
+
+.blog-detail {
+  width: 60%;
+  margin: 80px auto;
+  padding: 10px 70px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+
+  @include mobile {
+    width: 90%;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .post-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      &__avatar {
+        width: 40px;
+        height: 40px;
+      }
+      .info {
+        &__name {
+          color: #606367;
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        &__time {
+          color: #606367;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .post-options {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      .option-item {
+        padding: 5px;
+        border-radius: 50%;
+        background-color: #f0f2f4;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #606367;
+        font-size: 20px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #e4e6e8;
+        }
+      }
+    }
+  }
+
+  &__text {
+    margin-top: 10px;
+    color: #606367;
+    font-size: 14px;
+  }
+
+  &__image {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+    border-top: solid 2px #eee;
+    border-bottom: solid 2px #eee;
+
+    .blog-actions__item {
+      width: 33.33%;
+      padding: 10px 20px;
+      background-color: transparent;
+      border: none;
+      color: #606367;
+      font-weight: 500px;
+      font-size: 16px;
+
+      @include mobile {
+        font-size: 13px;
+      }
+
+      &:hover {
+        background-color: #f0f2f4;
+      }
+
+      .action-icon {
+        font-size: 16px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__comment {
+    select {
+      background-color: transparent;
+      color: #606367;
+      font-size: 16px;
+      border: none;
+      padding: 10px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 10px;
+
+      &:focus {
+        outline: none;
+      }
+
+      @include mobile {
+        font-size: 14px;
+      }
+    }
+
+    .comment-list {
+      .comment-item {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+
+        &__avatar {
+          width: 40px;
+          height: 40px;
+        }
+
+        &__content {
+          width: fit-content;
+
+          .comment-content {
+            background-color: #f0f2f4;
+            border-radius: 10px;
+            padding: 10px;
+
+            .content-name {
+              color: #606367;
+              font-size: 14px;
+              font-weight: 700;
+            }
+
+            .content-text {
+              color: #606367;
+              font-size: 14px;
+            }
+          }
+
+          .comment-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+
+            .comment-time {
+              color: #606367;
+              font-size: 12px;
+            }
+
+            &__item {
+              background-color: transparent;
+              border: none;
+              color: #606367;
+              font-size: 12px;
+              font-weight: 600;
+
+              &:hover {
+                border-bottom: 1px solid #606367;
+              }
+            }
+          }
+        }
+
+        &__menu {
+          background-color: transparent;
+          border: none;
+          color: #606367;
+          font-size: 20px;
+          cursor: pointer;
+          height: 40px;
+          width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+
+          &:hover {
+            background-color: #f0f2f4;
+          }
+        }
+      }
+    }
+
+    .comment-form {
+      display: flex;
+      gap: 10px;
+      border-top: 2px solid #eee;
+      padding-top: 10px;
+
+      &__avatar {
+        width: 40px;
+        height: 40px;
+      }
+
+      &__input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        background-color: #f0f2f4;
+        color: #606367;
+      }
+
+      &__submit {
+        background-color: #2c83da;
+        color: #e4e4e4;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+
+        @include mobile {
+          font-size: 14px;
+        }
+
+        &:hover {
+          background-color: #1f5f8b;
+        }
+      }
+    }
+  }
+}

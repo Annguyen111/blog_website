@@ -2,15 +2,16 @@ import avatar from '../../assets/user-icon.png'
 import './profileHeader.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGear, faQuestion, faMoon, faCommentDots, faRightToBracket } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 function ProfileHeader() {
   return (
     <div className='profileheader'>
       <div className='account'>
-        <div className='account__avatar'>
+        <Link to='/profile' className='account__avatar'>
           <img src={avatar} alt='' />
           <p>Quoc An</p>
-        </div>
+        </Link>
         <button>See all profiles</button>
       </div>
       <div className='nav'>

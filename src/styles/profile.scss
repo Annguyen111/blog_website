@@ -1,0 +1,32 @@
+@use '../styles/_breakpoint' as *;
+
+.profile {
+  .profile-wrapper {
+    margin: 70px auto;
+    max-width: 70%;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    @include mobile {
+      max-width: 95%;
+    }
+
+    @include tablet {
+      max-width: 85%;
+    }
+
+    .profile-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      @include tablet {
+        gap: 10px;
+      }
+    }
+  }
+}

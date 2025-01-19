@@ -6,7 +6,6 @@ import {
   faUsers,
   faGamepad,
   faSquareCaretDown,
-  faMessage,
   faBell,
 } from '@fortawesome/free-solid-svg-icons'
 
@@ -19,10 +18,9 @@ const navLinks = [
 ]
 
 const actionLinks = [
-  { id: 1, icon: faSquareCaretDown, path: '/menu', name: 'Menu' },
-  { id: 2, icon: faMessage, path: '/messages', name: 'Messages' },
-  { id: 3, icon: faBell, path: '/notifications', name: 'Notifications' },
-  { id: 4, icon: avatar, path: '', name: 'Profile', isImage: true }
+  { id: 1, icon: faSquareCaretDown, path: '', name: 'menu' },
+  { id: 2, icon: faBell, path: '', name: 'notifications' },
+  { id: 3, icon: avatar, path: '', name: 'profile', isImage: true }
 ]
 
 export { navLinks, actionLinks }

@@ -1,22 +1,25 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faEllipsis,
-  faXmark,
-  faThumbsUp,
-  faComment,
-  faShare
-} from '@fortawesome/free-solid-svg-icons'
+import { faEllipsis, faXmark, faThumbsUp, faComment, faShare } from '@fortawesome/free-solid-svg-icons'
+import PostMenu from '../PostMenu/PostMenu'
+import { useState } from 'react'
 
 interface PostProps {
-    id: number;
-    avatar: string;
-    name: string;
-    time: string;
-    text: string;
-    image: string;
+  id: number
+  avatar: string
+  name: string
+  time: string
+  text: string
+  image: string
+}
+
+function Post({ avatar, name, time, text, image }: PostProps) {
+  const [isMenuVisible, setIsMenuVisible] = useState(false)
+
+  const toggleMenu = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    setIsMenuVisible(!isMenuVisible)
   }
 
-function Post({ avatar, name, time, text, image }: PostProps ) {
   return (
     <div className='feed__post'>
       <div className='feed__post-header'>
@@ -28,7 +31,7 @@ function Post({ avatar, name, time, text, image }: PostProps ) {
           </div>
         </div>
         <div className='post-options'>
-          <a className='option-item' href=''>
+          <a className='option-item' href='#' onClick={toggleMenu}>
             <FontAwesomeIcon className='option-item__icon' icon={faEllipsis} />
           </a>
           <a className='option-item' href=''>
@@ -36,6 +39,7 @@ function Post({ avatar, name, time, text, image }: PostProps ) {
           </a>
         </div>
       </div>
+      {isMenuVisible && <PostMenu />}
       <p className='post-text'>{text}</p>
       <img className='post-image' src={image} alt='Post Image' />
       <div className='post-actions'>

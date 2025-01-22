@@ -17,13 +17,12 @@ function Header({ onAvatarClick, onBellClick, onMenuClick }: HeaderProps) {
   const [activeId, setActiveId] = useState<number | null>(null)
   const location = useLocation()
 
-  const handleClick = (id: number, name: string) => {
+  const handleHeaderClick = (id: number, name: string) => {
     if (activeId === id) {
       setActiveId(null)
     } else {
       setActiveId(id)
     }
-    console.log(`Clicked on: ${name}`)
     if (name === 'profile') {
       onAvatarClick()
     }
@@ -56,7 +55,7 @@ function Header({ onAvatarClick, onBellClick, onMenuClick }: HeaderProps) {
               <li
                 key={link.id}
                 className={`nav-list__item ${location.pathname === link.path ? 'active' : ''}`}
-                onClick={() => handleClick(link.id, link.name)}
+                onClick={() => handleHeaderClick(link.id, link.name)}
               >
                 <Link to={link.path}>
                   <FontAwesomeIcon icon={link.icon} />
@@ -72,7 +71,7 @@ function Header({ onAvatarClick, onBellClick, onMenuClick }: HeaderProps) {
               <li
                 key={action.id}
                 className={`actions-list__item ${activeId === action.id ? 'active' : ''}`}
-                onClick={() => handleClick(action.id, action.name)}
+                onClick={() => handleHeaderClick(action.id, action.name)}
               >
                 <Link to={action.path}>
                   {action.isImage ? (

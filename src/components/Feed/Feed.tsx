@@ -48,6 +48,7 @@ function Feed() {
           key={post.id}
           id={post.id}
           avatar={post.avatar}
+          title={post.title}
           name={post.name}
           time={post.time}
           text={post.text}

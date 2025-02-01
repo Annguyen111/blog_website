@@ -1,20 +1,36 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './header.scss'
 import logo from '../../assets/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { actionLinks, navLinks } from '../../constants/headerData'
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { useState } from 'react'
 
 interface HeaderProps {
   onAvatarClick: () => void
+  onBellClick: () => void
+  onMenuClick: () => void
 }
 
-function Header({ onAvatarClick }: HeaderProps) {
-  const handleClick = (name: string) => {
-    console.log(`Clicked on: ${name}`)
-    if (name === 'Profile') {
+function Header({ onAvatarClick, onBellClick, onMenuClick }: HeaderProps) {
+  const [activeId, setActiveId] = useState<number | null>(null)
+  const location = useLocation()
+
+  const handleHeaderClick = (id: number, name: string) => {
+    if (activeId === id) {
+      setActiveId(null)
+    } else {
+      setActiveId(id)
+    }
+    if (name === 'profile') {
       onAvatarClick()
+    }
+    if (name === 'notifications') {
+      onBellClick()
+    }
+    if (name === 'menu') {
+      onMenuClick()
     }
   }
 
@@ -38,8 +54,8 @@ function Header({ onAvatarClick }: HeaderProps) {
             {navLinks.map((link) => (
               <li
                 key={link.id}
-                className={`nav-list__item ${link.name === 'Home' ? 'active' : ''}`}
-                onClick={() => handleClick(link.name)}
+                className={`nav-list__item ${location.pathname === link.path ? 'active' : ''}`}
+                onClick={() => handleHeaderClick(link.id, link.name)}
               >
                 <Link to={link.path}>
                   <FontAwesomeIcon icon={link.icon} />
@@ -52,10 +68,14 @@ function Header({ onAvatarClick }: HeaderProps) {
         <div className='header-actions'>
           <ul className='actions-list'>
             {actionLinks.map((action) => (
-              <li key={action.id} className='actions-list__item' onClick={() => handleClick(action.name)}>
+              <li
+                key={action.id}
+                className={`actions-list__item ${activeId === action.id ? 'active' : ''}`}
+                onClick={() => handleHeaderClick(action.id, action.name)}
+              >
                 <Link to={action.path}>
                   {action.isImage ? (
-                    <img src={action.icon} alt={action.name} />
+                    <img src={action.icon} alt={`Icon for ${action.name}`} />
                   ) : (
                     <FontAwesomeIcon icon={action.icon as IconProp} />
                   )}

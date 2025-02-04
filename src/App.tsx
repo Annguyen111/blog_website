@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <Preloader isVisible={loading} />
-      <div style={{ display: loading ? 'none' : 'block', opacity: loading ? 0 : 1 ,}}>
+      <div style={{ display: loading ? 'none' : 'block', opacity: loading ? 0 : 1 , transition: 'opacity 0.5s'}}>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
